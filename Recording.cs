@@ -18,7 +18,7 @@
             // Создаю ЭК для записи
             StreamWriter streamWriter = new StreamWriter(path + fileName, true);
 
-            dictionary = settings.SETTINGS;
+            dictionary = settings.SettingsList;
             string name = settings.Name;
 
             streamWriter.WriteLine($"{name}:");

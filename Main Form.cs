@@ -46,11 +46,11 @@ namespace _3d
         {
             try // попытка добавить данные в словарь
             {
-                settings.SETTINGS.Add(labelSpeed.Text, Convert.ToInt32(textBoxSpeed.Text));
-                settings.SETTINGS.Add(labelPrintingTemperature.Text, Convert.ToInt32(textBoxPrintTemp.Text));
-                settings.SETTINGS.Add(labelTableTemp.Text, Convert.ToInt32(textBoxTableTemp.Text));
-                settings.SETTINGS.Add(labelMinVentilationSpeed.Text, Convert.ToInt32(textBoxMinVentSped.Text));
-                settings.SETTINGS.Add(labelMaxVentilationSpeed.Text, Convert.ToInt32(textBoxMaxVentSped.Text));
+                settings.SettingsList.Add(labelSpeed.Text, Convert.ToInt32(textBoxSpeed.Text));
+                settings.SettingsList.Add(labelPrintingTemperature.Text, Convert.ToInt32(textBoxPrintTemp.Text));
+                settings.SettingsList.Add(labelTableTemp.Text, Convert.ToInt32(textBoxTableTemp.Text));
+                settings.SettingsList.Add(labelMinVentilationSpeed.Text, Convert.ToInt32(textBoxMinVentSped.Text));
+                settings.SettingsList.Add(labelMaxVentilationSpeed.Text, Convert.ToInt32(textBoxMaxVentSped.Text));
                 AddForm addForm = new AddForm("Data added.");
                 addForm.ShowDialog();
             }
@@ -59,7 +59,7 @@ namespace _3d
                 // Второе окно с ошибкой
                 AddForm errorForm = new AddForm("Error! Unknown format data.");
                 errorForm.ShowDialog();
-                settings.SETTINGS.Clear();
+                settings.SettingsList.Clear();
                 return;
             }
         }
@@ -94,7 +94,7 @@ namespace _3d
         /// <returns></returns>
         private bool dataIsAdding(Settings settings)
         {
-            return settings.SETTINGS.Count > 0;
+            return settings.SettingsList.Count > 0;
         }
 
         /// <summary>
@@ -103,11 +103,11 @@ namespace _3d
         private void RecordData()
         {
             Recording rec = new Recording();
-            rec.Record(settings, settings.SETTINGS);
+            rec.Record(settings, settings.SettingsList);
             ClearColumns();
             AddForm successfulForm = new AddForm("Successful recording.");
             successfulForm.ShowDialog();
-            settings.SETTINGS.Clear();
+            settings.SettingsList.Clear();
             return;
         }
 
