@@ -1,5 +1,4 @@
-﻿
-namespace _3d
+﻿namespace _3d
 {
     public partial class AddForm : Form
     {
