@@ -18,7 +18,7 @@ namespace _3d
         {
             // «аписываю им€ теста
             AddTestName(textBoxTestName);
-            Addingdata();
+            AddingData();
             
         }
 
@@ -42,7 +42,7 @@ namespace _3d
         /// <summary>
         /// ƒобавл€ет данные в словарь
         /// </summary>
-        private void Addingdata()
+        private void AddingData()
         {
             try // попытка добавить данные в словарь
             {

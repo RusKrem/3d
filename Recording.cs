@@ -1,5 +1,4 @@
-﻿using System.IO;
-namespace _3d
+﻿namespace _3d
 {
     internal class Recording
     {
