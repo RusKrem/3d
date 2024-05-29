@@ -217,7 +217,7 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.GhostWhite;
-            BackgroundImageLayout = ImageLayout.Stretch;
+            BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(321, 351);
             Controls.Add(buttonClose);
             Controls.Add(buttonRecord);
