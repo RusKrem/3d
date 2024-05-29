@@ -51,14 +51,14 @@ namespace _3d
                 settings.SETTINGS.Add(labelTableTemp.Text, Convert.ToInt32(textBoxTableTemp.Text));
                 settings.SETTINGS.Add(labelMinVentilationSpeed.Text, Convert.ToInt32(textBoxMinVentSped.Text));
                 settings.SETTINGS.Add(labelMaxVentilationSpeed.Text, Convert.ToInt32(textBoxMaxVentSped.Text));
-                AddForm addForm = new AddForm();
+                AddForm addForm = new AddForm("Data added.");
                 addForm.ShowDialog();
             }
             catch (Exception)
             {
                 // Второе окно с ошибкой
-                ErrorForm form2 = new ErrorForm();
-                form2.ShowDialog();
+                AddForm errorForm = new AddForm("Error! Unknown format data.");
+                errorForm.ShowDialog();
                 settings.SETTINGS.Clear();
                 return;
             }
@@ -71,16 +71,48 @@ namespace _3d
         /// <param name="e"></param>
         private void buttonRecord_Click(object sender, EventArgs e)
         {
-            Recording rec = new Recording();
-            rec.Record(settings, settings.SETTINGS);
-            ClearColumns();
-            Form formSucc = new Sucsess();
-            formSucc.ShowDialog();
-            settings.SETTINGS.Clear();
+            // флаг проверки данных
+            bool count = dataIsAdding(settings);
+            if (!count)
+            {
+                AddForm noDataForm = new AddForm("No find data field.");
+                noDataForm.ShowDialog();
+                ClearColumns();
+                return;
+            }
+            else
+            {
+                // Запись данных
+                RecordData();
+            }
         }
 
         /// <summary>
-        /// Очищает колонки формыот данных
+        /// Проверяет наличие данных в словаре
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        private bool dataIsAdding(Settings settings)
+        {
+            return settings.SETTINGS.Count > 0;
+        }
+
+        /// <summary>
+        /// Записывает данные
+        /// </summary>
+        private void RecordData()
+        {
+            Recording rec = new Recording();
+            rec.Record(settings, settings.SETTINGS);
+            ClearColumns();
+            AddForm successfulForm = new AddForm("Successful recording.");
+            successfulForm.ShowDialog();
+            settings.SETTINGS.Clear();
+            return;
+        }
+
+        /// <summary>
+        /// Очищает колонки формы от данных
         /// </summary>
         private void ClearColumns()
         {

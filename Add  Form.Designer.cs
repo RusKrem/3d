@@ -36,16 +36,16 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(59, 9);
+            label1.Location = new Point(35, 9);
             label1.Name = "label1";
-            label1.Size = new Size(127, 25);
+            label1.Size = new Size(109, 25);
             label1.TabIndex = 0;
-            label1.Text = "Data is added";
+            label1.Text = "Data added";
             // 
             // buttonAddFormClose
             // 
             buttonAddFormClose.Font = new Font("Segoe UI", 12F);
-            buttonAddFormClose.Location = new Point(77, 48);
+            buttonAddFormClose.Location = new Point(104, 54);
             buttonAddFormClose.Name = "buttonAddFormClose";
             buttonAddFormClose.Size = new Size(89, 41);
             buttonAddFormClose.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(237, 101);
+            ClientSize = new Size(293, 107);
             Controls.Add(buttonAddFormClose);
             Controls.Add(label1);
             Name = "AddForm";
